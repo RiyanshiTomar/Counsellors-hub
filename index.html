@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Govt Exam Wallah — Counsellor Hub</title>
+  <meta name="description" content="Exam facts, eligibility, patterns and talking points for Govt Exam Wallah counsellors: SSC, Banking, Railways and state-level exams.">
+  <meta name="theme-color" content="#0b1b3f">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Hind:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip" href="#view">Skip to content</a>
+
+  <header class="top" id="top">
+    <div class="wrap top-in">
+      <a class="brand" href="#/" aria-label="Govt Exam Wallah Counsellor Hub — home">
+        <img src="assets/logo.png" alt="" width="40" height="40">
+        <span class="brand-text">
+          <span class="brand-name">Govt Exam Wallah</span>
+          <span class="brand-sub">Counsellor Hub</span>
+        </span>
+      </a>
+
+      <nav class="nav-d" aria-label="Main">
+        <a href="#/" data-nav="home">Home</a>
+        <a href="#/c/ssc" data-nav="c">Exams</a>
+        <a href="#/finder" data-nav="finder">Eligibility Finder</a>
+        <a href="#/selections" data-nav="selections">Selections</a>
+        <a href="#/training" data-nav="training">Training</a>
+      </nav>
+
+      <div class="search" id="searchBox" role="search">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Search any exam, post or state" autocomplete="off" aria-label="Search exams" aria-controls="sugg" aria-expanded="false">
+        <ul class="sugg" id="sugg" role="listbox" hidden></ul>
+      </div>
+
+      <button class="icon-btn only-m" id="searchToggle" aria-label="Search" aria-expanded="false">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </button>
+      <a class="call" id="callTop" href="tel:+917303699227" aria-label="Call helpline">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>
+        <span class="call-text"><small>Helpline</small><b id="callNum">7303699227</b></span>
+      </a>
+    </div>
+  </header>
+
+  <main id="view" tabindex="-1" aria-live="polite"></main>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <div class="foot-brand">
+        <img src="assets/logo.png" alt="" width="36" height="36">
+        <div>
+          <b>Govt Exam Wallah</b>
+          <span>Powered by Physics Wallah</span>
+        </div>
+      </div>
+      <p class="foot-note">Internal tool for counsellors. Details come from official notifications and calendars. Anything marked <span class="badge verify sm">Verify</span> must be confirmed on the official website before you quote it to a student. Last updated <span id="lastUpd"></span>.</p>
+    </div>
+  </footer>
+
+  <nav class="nav-m" aria-label="Main">
+    <a href="#/" data-nav="home"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h5v-6h4v6h5V10"/></svg><span>Home</span></a>
+    <a href="#/c/ssc" data-nav="c"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Exams</span></a>
+    <a href="#/finder" data-nav="finder"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg><span>Finder</span></a>
+    <a href="#/selections" data-nav="selections"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4zM17 5h3v2a3 3 0 01-3 3M7 5H4v2a3 3 0 003 3"/></svg><span>Selections</span></a>
+    <a href="#/training" data-nav="training"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2V5zM4 19a2 2 0 012-2h13"/></svg><span>Training</span></a>
+  </nav>
+
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Poster">
+    <button class="lb-close" id="lbClose" aria-label="Close poster">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="lb-scroll"><img id="lbImg" alt=""></div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/data-core.js"></script>
+  <script src="js/data-states.js"></script>
+  <script src="js/data-training.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
