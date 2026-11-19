@@ -124,9 +124,6 @@
       return '<a class="tile tone-' + c.id + '" href="#/c/' + c.id + '"><div class="tile-h"><h3>' + esc(c.name) + "</h3><span>" + sub + '</span></div><div class="tile-b"><p>' + esc(c.blurb) + '</p><div class="chips">' + byCat(c.id, 4) + '</div><span class="tile-go">Open ' + svg("arrow") + "</span></div></a>";
     }).join("");
 
-    var up = D.upcoming.map(function (u) {
-      return '<li><a href="#/e/' + u.id + '"><span class="when">' + esc(u.when) + '</span><span class="what">' + esc(u.title) + "</span></a></li>";
-    }).join("");
 
     mount(
       '<section class="hero"><div class="wrap hero-in">' +
@@ -151,12 +148,72 @@
         '<a class="tool" href="#/training">' + svg("book") + "<div><h3>Training playbook</h3><p>Counselling flow, discovery questions and scripts for common objections.</p></div></a>" +
       "</div></section>" +
 
-      '<section class="wrap sec"><div class="sec-h"><h2>Coming up</h2><p>Next dates from the official exam calendars.</p></div><ol class="up">' + up + "</ol>" +
-      '<p class="note">As of ' + esc(CFG.lastUpdated) + '. Calendar dates are tentative until the exam notice. <span class="badge verify sm">Verify</span> on ssc.gov.in or ibps.in before quoting.</p></section>',
+      '<section class="wrap sec"><div class="sec-h"><h2>Coming up</h2><p>Next dates from the official exam calendars.</p></div><ol class="up" id="upList"><li class="up-load">Loading dates…</li></ol>' +
+      '<p class="note">As of <span id="upAsOf">' + esc(CFG.lastUpdated) + '</span>. Past dates hide automatically. Calendar dates are tentative until the exam notice. <span class="badge verify sm">Verify</span> on ssc.gov.in or ibps.in before quoting.</p></section>',
       ""
     );
 
+    loadUpcoming();
     initCarousel();
+  }
+
+  function todayISO() { var d = new Date(); return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); }
+  function csvRows(text) {
+    var rows = [], row = [], cur = "", q = false, i, ch;
+    text = text.replace(/^\uFEFF/, "");
+    for (i = 0; i < text.length; i++) {
+      ch = text[i];
+      if (q) { if (ch === '"') { if (text[i + 1] === '"') { cur += '"'; i++; } else q = false; } else cur += ch; }
+      else if (ch === '"') q = true;
+      else if (ch === ",") { row.push(cur); cur = ""; }
+      else if (ch === "\n" || ch === "\r") { if (ch === "\r" && text[i + 1] === "\n") i++; row.push(cur); rows.push(row); row = []; cur = ""; }
+      else cur += ch;
+    }
+    if (cur.length || row.length) { row.push(cur); rows.push(row); }
+    return rows;
+  }
+  var MON = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  function whenText(s, e) {
+    var a = s.split("-"), b = (e || s).split("-");
+    var f = function (p) { return +p[2] + " " + MON[+p[1] - 1] + " " + p[0]; };
+    return s === (e || s) ? f(a) : f(a) + " – " + f(b);
+  }
+  function sheetItems(txt) {
+    var rows = csvRows(txt).filter(function (r) { return r.some(function (c) { return String(c).trim(); }); });
+    if (rows.length < 2) throw new Error("empty");
+    var h = rows[0].map(function (c) { return String(c).trim().toLowerCase(); });
+    var ix = function (n) { return h.indexOf(n); };
+    var iso = /^\d{4}-\d{2}-\d{2}$/;
+    return rows.slice(1).map(function (r) {
+      var g = function (n) { var k = ix(n); return k < 0 ? "" : String(r[k] || "").trim(); };
+      var st = g("start"), en = g("end") || st;
+      if (!iso.test(st) || !iso.test(en)) return null;
+      return { start: st, end: en, when: g("when") || whenText(st, en), title: g("title"), id: g("examid"), tentative: /^(y|yes|true|1)$/i.test(g("tentative")) };
+    }).filter(function (x) { return x && x.title; });
+  }
+  function paintUpcoming(items, updated) {
+    var box = $("#upList"); if (!box) return;
+    var t = todayISO();
+    var list = items.filter(function (u) { return (u.end || u.start) >= t; }).sort(function (x, y) { return x.start < y.start ? -1 : 1; });
+    if (updated && $("#upAsOf")) $("#upAsOf").textContent = updated;
+    box.innerHTML = list.length ? list.map(function (u) {
+      var inner = '<span class="when">' + esc(u.when) + '</span><span class="what">' + esc(u.title) + (u.tentative ? ' <span class="badge verify sm">Tentative</span>' : "") + "</span>";
+      return "<li>" + (u.id && examById[u.id] ? '<a href="#/e/' + esc(u.id) + '">' + inner + "</a>" : '<a href="#/c/ssc" onclick="return false" style="cursor:default">' + inner + "</a>") + "</li>";
+    }).join("") : '<li class="up-load">Abhi koi naya date listed nahi hai. Official calendar check karo: ssc.gov.in, ibps.in, rrbapply.gov.in.</li>';
+  }
+  function loadUpcoming() {
+    if (!$("#upList")) return;
+    function fromFile() {
+      return fetch("data/upcoming.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+        .then(function (j) { paintUpcoming(j.items || [], j.updated); })
+        .catch(function () { var b = $("#upList"); if (b) b.innerHTML = '<li class="up-load">Dates abhi load nahi ho paaye. Official calendar check karo: ssc.gov.in, ibps.in.</li>'; });
+    }
+    var sid = CFG.upcomingSheetId;
+    if (!sid) return fromFile();
+    var url = "https://docs.google.com/spreadsheets/d/" + sid + "/gviz/tq?tqx=out:csv" + (CFG.upcomingSheetTab ? "&sheet=" + encodeURIComponent(CFG.upcomingSheetTab) : "");
+    fetch(url, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.text(); })
+      .then(function (txt) { if (/^\s*</.test(txt)) throw new Error("not public"); var it = sheetItems(txt); if (!it.length) throw new Error("no rows"); paintUpcoming(it, "live from sheet"); })
+      .catch(fromFile);
   }
 
   function initCarousel() {
