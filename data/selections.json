@@ -1,5 +1,341 @@
 [
  {
+  "name": "Arpit Pandey",
+  "exam": "IBPS Clerk",
+  "post": "",
+  "centre": "Lucknow",
+  "year": "2024-25"
+ },
+ {
+  "name": "Ayush Mishra",
+  "exam": "IBPS Clerk",
+  "post": "",
+  "centre": "Lucknow",
+  "year": "2024-25"
+ },
+ {
+  "name": "Satvik Pandey",
+  "exam": "IBPS Clerk",
+  "post": "",
+  "centre": "Lucknow",
+  "year": "2024-25"
+ },
+ {
+  "name": "Aayushi Singh",
+  "exam": "IBPS PO",
+  "post": "",
+  "centre": "Patna",
+  "year": "2024-25"
+ },
+ {
+  "name": "Abhishek Gupta",
+  "exam": "IBPS PO",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Anirup Mukherjee",
+  "exam": "IBPS PO",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Arpit Pandey",
+  "exam": "IBPS PO",
+  "post": "",
+  "centre": "Lucknow",
+  "year": "2024-25"
+ },
+ {
+  "name": "Aryan Aks",
+  "exam": "IBPS PO",
+  "post": "",
+  "centre": "Patna",
+  "year": "2024-25"
+ },
+ {
+  "name": "Ayush Mishra",
+  "exam": "IBPS PO",
+  "post": "",
+  "centre": "Lucknow",
+  "year": "2024-25"
+ },
+ {
+  "name": "Jayesh Yadav",
+  "exam": "IBPS PO",
+  "post": "",
+  "centre": "Patna",
+  "year": "2024-25"
+ },
+ {
+  "name": "Jyoti Mishra",
+  "exam": "IBPS PO",
+  "post": "",
+  "centre": "Patna",
+  "year": "2024-25"
+ },
+ {
+  "name": "Kajal Mishra",
+  "exam": "IBPS PO",
+  "post": "",
+  "centre": "Patna",
+  "year": "2024-25"
+ },
+ {
+  "name": "Pari Mishra",
+  "exam": "IBPS PO",
+  "post": "",
+  "centre": "Patna",
+  "year": "2024-25"
+ },
+ {
+  "name": "Robin Kumar",
+  "exam": "IBPS PO",
+  "post": "",
+  "centre": "Patna",
+  "year": "2024-25"
+ },
+ {
+  "name": "Sagar Shivam",
+  "exam": "IBPS PO",
+  "post": "",
+  "centre": "Patna",
+  "year": "2024-25"
+ },
+ {
+  "name": "Satvik Pandey",
+  "exam": "IBPS PO",
+  "post": "",
+  "centre": "Lucknow",
+  "year": "2024-25"
+ },
+ {
+  "name": "Saurabh Priyadarshi",
+  "exam": "IBPS PO",
+  "post": "",
+  "centre": "Patna",
+  "year": "2024-25"
+ },
+ {
+  "name": "Swarnima Singh",
+  "exam": "IBPS PO",
+  "post": "",
+  "centre": "Lucknow",
+  "year": "2024-25"
+ },
+ {
+  "name": "Harsh Srivastava",
+  "exam": "IBPS RRB PO",
+  "post": "",
+  "centre": "Lucknow",
+  "year": "2024-25"
+ },
+ {
+  "name": "Arjyabrata Paul",
+  "exam": "SBI Clerk",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Krity Pandey",
+  "exam": "SBI Clerk",
+  "post": "",
+  "centre": "Patna",
+  "year": "2024-25"
+ },
+ {
+  "name": "Nisha Mandal",
+  "exam": "SBI Clerk",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Riddhi Pandey",
+  "exam": "SBI Clerk",
+  "post": "",
+  "centre": "Patna",
+  "year": "2024-25"
+ },
+ {
+  "name": "Sagar Shivam",
+  "exam": "SBI Clerk",
+  "post": "",
+  "centre": "Patna",
+  "year": "2024-25"
+ },
+ {
+  "name": "Sayak Nag",
+  "exam": "SBI Clerk",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Arunava Chakraborty",
+  "exam": "SSC CGL",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Rishabh Anand",
+  "exam": "SSC CHSL",
+  "post": "",
+  "centre": "Lucknow",
+  "year": "2024-25"
+ },
+ {
+  "name": "Adarsh Pandey",
+  "exam": "SSC GD",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Akhand Pratap Singh",
+  "exam": "SSC GD",
+  "post": "",
+  "centre": "Lucknow",
+  "year": "2024-25"
+ },
+ {
+  "name": "Akshay Mishra",
+  "exam": "SSC GD",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Amrita Pritam Banerjee",
+  "exam": "SSC GD",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Arnab Saha",
+  "exam": "SSC GD",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Jeet Chakrobarty",
+  "exam": "SSC GD",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Kartick Sinhamahapatra",
+  "exam": "SSC GD",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Mriganka Ghosh",
+  "exam": "SSC GD",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Prallad Saha",
+  "exam": "SSC GD",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Saheb Saikh",
+  "exam": "SSC GD",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Soumyadeep Chakrabarty",
+  "exam": "SSC GD",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Souvik Biswas",
+  "exam": "SSC GD",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Subham Shaw",
+  "exam": "SSC GD",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Akashy Dey",
+  "exam": "SSC MTS",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Deep Das",
+  "exam": "SSC MTS",
+  "post": "",
+  "centre": "Kolkata",
+  "year": "2024-25"
+ },
+ {
+  "name": "Akash Singh",
+  "exam": "UP Police",
+  "post": "",
+  "centre": "Lucknow",
+  "year": "2024-25"
+ },
+ {
+  "name": "Amit",
+  "exam": "UP Police",
+  "post": "",
+  "centre": "Lucknow",
+  "year": "2024-25"
+ },
+ {
+  "name": "Arvind Kumar",
+  "exam": "UP Police",
+  "post": "",
+  "centre": "Lucknow",
+  "year": "2024-25"
+ },
+ {
+  "name": "Karan Singh",
+  "exam": "UP Police",
+  "post": "",
+  "centre": "Lucknow",
+  "year": "2024-25"
+ },
+ {
+  "name": "Raj Veer",
+  "exam": "UP Police",
+  "post": "",
+  "centre": "Lucknow",
+  "year": "2024-25"
+ },
+ {
+  "name": "Sarvagya Singh",
+  "exam": "UP Police",
+  "post": "",
+  "centre": "Lucknow",
+  "year": "2024-25"
+ },
+ {
   "name": "Aanchal Singh",
   "exam": "IBPS Clerk",
   "post": "UCO Bank",
@@ -141,252 +477,252 @@
  },
  {
   "name": "Abhinav Jindal",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Central Bank of India",
   "centre": "Delhi",
   "year": "2025-26"
  },
  {
   "name": "Abhishek Agrahari",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "",
   "centre": "Lucknow",
   "year": "2025-26"
  },
  {
   "name": "Abhishek Merotha",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Bank of India",
   "centre": "Bhopal",
   "year": "2025-26"
  },
  {
   "name": "Apoorv Tripathi",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "",
   "centre": "Lucknow",
   "year": "2025-26"
  },
  {
   "name": "Arjit Mishra",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "",
   "centre": "Lucknow",
   "year": "2025-26"
  },
  {
   "name": "Ashwini Philips",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Bank of India",
   "centre": "Bhopal",
   "year": "2025-26"
  },
  {
   "name": "Atul Kumar Gupta",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Central Bank of India",
   "centre": "Indore",
   "year": "2025-26"
  },
  {
   "name": "Avtarit Dwivedi",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Bank of Baroda",
   "centre": "Bhopal",
   "year": "2025-26"
  },
  {
   "name": "Ayushi Singh",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "",
   "centre": "Lucknow",
   "year": "2025-26"
  },
  {
   "name": "Deepak Rakhiyani",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Punjab National Bank",
   "centre": "Bhopal",
   "year": "2025-26"
  },
  {
   "name": "Digant Singh",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "",
   "centre": "Lucknow",
   "year": "2025-26"
  },
  {
   "name": "Gauri Singh",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "",
   "centre": "Lucknow",
   "year": "2025-26"
  },
  {
   "name": "Harsha",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Canara Bank",
   "centre": "Delhi",
   "year": "2025-26"
  },
  {
   "name": "Hema Satyani",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Bank of Maharastra",
   "centre": "Bhopal",
   "year": "2025-26"
  },
  {
   "name": "Jit Kundu",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Canara Bank",
   "centre": "Kolkata",
   "year": "2025-26"
  },
  {
   "name": "Keerti Choudhary",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Central Bank of India",
   "centre": "Bhopal",
   "year": "2025-26"
  },
  {
   "name": "Keerti Sarathe",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Bank of Maharastra",
   "centre": "Bhopal",
   "year": "2025-26"
  },
  {
   "name": "Khushi Saxena",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "",
   "centre": "Lucknow",
   "year": "2025-26"
  },
  {
   "name": "Nandani Kumari",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Central Bank of India",
   "centre": "Patna",
   "year": "2025-26"
  },
  {
   "name": "Narendra Mewada",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Bank of Maharastra",
   "centre": "Bhopal",
   "year": "2025-26"
  },
  {
   "name": "Naval Pratap Singh",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Canara Bank",
   "centre": "Lucknow",
   "year": "2025-26"
  },
  {
   "name": "Pavan Singh",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "",
   "centre": "Lucknow",
   "year": "2025-26"
  },
  {
   "name": "Prabhash Chandra",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "",
   "centre": "Lucknow",
   "year": "2025-26"
  },
  {
   "name": "Pranav Waikar",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Central Bank of India",
   "centre": "Bhopal",
   "year": "2025-26"
  },
  {
   "name": "Rishabh Gautam",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Punjab and Sind Bank",
   "centre": "Delhi",
   "year": "2025-26"
  },
  {
   "name": "Rohit Choudhary",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Indian Overseas Bank",
   "centre": "Bhopal",
   "year": "2025-26"
  },
  {
   "name": "Sachin Lodhi",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Bank of India",
   "centre": "Bhopal",
   "year": "2025-26"
  },
  {
   "name": "Sagar Shivam",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "",
   "centre": "Patna",
   "year": "2025-26"
  },
  {
   "name": "Sajal Verma",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Canara Bank",
   "centre": "Delhi",
   "year": "2025-26"
  },
  {
   "name": "Sanchayan Ghosh",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Bank of India",
   "centre": "Kolkata",
   "year": "2025-26"
  },
  {
   "name": "Shagufta Anjum",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "UCO Bank",
   "centre": "Patna",
   "year": "2025-26"
  },
  {
   "name": "Shubham Kumar Mishra",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Indian Overseas Bank",
   "centre": "Patna",
   "year": "2025-26"
  },
  {
   "name": "Sneha Gupta",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Punjab National Bank",
   "centre": "Bhopal",
   "year": "2025-26"
  },
  {
   "name": "Sneha Priya",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Punjab & Sindh Bank",
   "centre": "Patna",
   "year": "2025-26"
  },
  {
   "name": "Vaishali Gupta",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "Punjab National Bank",
   "centre": "Bhopal",
   "year": "2025-26"
  },
  {
   "name": "Yash Verma",
-  "exam": "IBPS PO PREMAINS",
+  "exam": "IBPS PO",
   "post": "",
   "centre": "Lucknow",
   "year": "2025-26"
@@ -623,7 +959,7 @@
   "year": "2025-26"
  },
  {
-  "name": "Gauri singh",
+  "name": "Gauri Singh",
   "exam": "SBI PO",
   "post": "",
   "centre": "Lucknow",
@@ -637,14 +973,14 @@
   "year": "2025-26"
  },
  {
-  "name": "Kavya trivedi",
+  "name": "Kavya Trivedi",
   "exam": "SBI PO",
   "post": "",
   "centre": "Lucknow",
   "year": "2025-26"
  },
  {
-  "name": "khushi Saxena",
+  "name": "Khushi Saxena",
   "exam": "SBI PO",
   "post": "",
   "centre": "Lucknow",
@@ -665,7 +1001,7 @@
   "year": "2025-26"
  },
  {
-  "name": "Rhitabrata bej",
+  "name": "Rhitabrata Bej",
   "exam": "SSC CGL",
   "post": "",
   "centre": "Kolkata",
@@ -722,7 +1058,7 @@
  },
  {
   "name": "Anjali Singh",
-  "exam": "BIHAR POLICE",
+  "exam": "Bihar Police",
   "post": "Bihar Police",
   "centre": "Patna Boaring Road",
   "year": "2026-27"
@@ -749,22 +1085,22 @@
   "year": "2026-27"
  },
  {
-  "name": "Aakash kumar",
-  "exam": "IB Security Asistant",
+  "name": "Aakash Kumar",
+  "exam": "IB Security Assistant",
   "post": "MHA",
   "centre": "Delhi",
   "year": "2026-27"
  },
  {
   "name": "Aman Diwan",
-  "exam": "IB Security Asistant",
+  "exam": "IB Security Assistant",
   "post": "MHA",
   "centre": "Delhi",
   "year": "2026-27"
  },
  {
   "name": "Madhavan Sharma",
-  "exam": "IB Security Asistant",
+  "exam": "IB Security Assistant",
   "post": "MHA",
   "centre": "Delhi",
   "year": "2026-27"
@@ -784,6 +1120,13 @@
   "year": "2026-27"
  },
  {
+  "name": "Abhishek Pawar",
+  "exam": "IBPS RRB PO",
+  "post": "MPGB",
+  "centre": "Bhopal",
+  "year": "2026-27"
+ },
+ {
   "name": "Vivek Shukla",
   "exam": "IDBI Bank",
   "post": "Assistant Manager (JAM) – Probationary Officer (PO) at IDBI Bank!",
@@ -798,58 +1141,51 @@
   "year": "2026-27"
  },
  {
-  "name": "Abhishek Pawar",
-  "exam": "RRB PO",
-  "post": "MPGB",
-  "centre": "Bhopal",
-  "year": "2026-27"
- },
- {
   "name": "Yash Raj",
-  "exam": "SBI CLERK",
+  "exam": "SBI Clerk",
   "post": "SBI",
   "centre": "Patna Boaring Road",
   "year": "2026-27"
  },
  {
   "name": "Abhishek Yadav",
-  "exam": "UP Constable 2025",
+  "exam": "UP Police Constable",
   "post": "UP Constable",
   "centre": "Prayagraj",
   "year": "2026-27"
  },
  {
   "name": "Adarsh Ojha",
-  "exam": "UP Constable 2025",
+  "exam": "UP Police Constable",
   "post": "",
   "centre": "Prayagraj",
   "year": "2026-27"
  },
  {
   "name": "Aditya Dubey",
-  "exam": "UP Constable 2025",
+  "exam": "UP Police Constable",
   "post": "Up Police",
   "centre": "Varanasi",
   "year": "2026-27"
  },
  {
   "name": "Diwakar Panday Dinkar",
-  "exam": "UP Constable 2025",
+  "exam": "UP Police Constable",
   "post": "UP Constable",
   "centre": "Lucknow Aliganj",
   "year": "2026-27",
   "photo": "https://drive.google.com/open?id=1TrD_H1xDgW2KOcYYnOZgETQVeN81GaFY"
  },
  {
-  "name": "Gajendra kumar verma",
-  "exam": "UP Constable 2025",
+  "name": "Gajendra Kumar Verma",
+  "exam": "UP Police Constable",
   "post": "",
   "centre": "Lucknow Aliganj",
   "year": "2026-27"
  },
  {
   "name": "Karan Singh",
-  "exam": "UP Constable 2025",
+  "exam": "UP Police Constable",
   "post": "UP Constable",
   "centre": "Lucknow Aliganj",
   "year": "2026-27",
@@ -857,7 +1193,7 @@
  },
  {
   "name": "Lakshmi Kushwaha",
-  "exam": "UP Constable 2025",
+  "exam": "UP Police Constable",
   "post": "UP Constable",
   "centre": "Lucknow Aliganj",
   "year": "2026-27",
@@ -865,7 +1201,7 @@
  },
  {
   "name": "Priyanshu Yadav",
-  "exam": "UP Constable 2025",
+  "exam": "UP Police Constable",
   "post": "UP Constable",
   "centre": "Prayagraj",
   "year": "2026-27",
@@ -873,14 +1209,14 @@
  },
  {
   "name": "Ritik Gupta",
-  "exam": "UP Constable 2025",
+  "exam": "UP Police Constable",
   "post": "",
   "centre": "Prayagraj",
   "year": "2026-27"
  },
  {
-  "name": "Satya prakash singh",
-  "exam": "UP Constable 2025",
+  "name": "Satya Prakash Singh",
+  "exam": "UP Police Constable",
   "post": "UP Constable",
   "centre": "Prayagraj",
   "year": "2026-27",
@@ -888,14 +1224,14 @@
  },
  {
   "name": "Subash Kumar Maurya",
-  "exam": "UP Constable 2025",
+  "exam": "UP Police Constable",
   "post": "Up Police",
   "centre": "Varanasi",
   "year": "2026-27"
  },
  {
   "name": "Sugandh",
-  "exam": "UP Constable 2025",
+  "exam": "UP Police Constable",
   "post": "UP Constable",
   "centre": "Bareilly",
   "year": "2026-27",
@@ -903,28 +1239,28 @@
  },
  {
   "name": "Surya Kant Yadav",
-  "exam": "UP Constable 2025",
+  "exam": "UP Police Constable",
   "post": "UP Constable",
   "centre": "Prayagraj",
   "year": "2026-27"
  },
  {
   "name": "Akhil Yadav",
-  "exam": "UPSI",
+  "exam": "UP Police SI",
   "post": "Sub Inspector",
   "centre": "Prayagraj",
   "year": "2026-27"
  },
  {
   "name": "Arvind",
-  "exam": "UPSI",
+  "exam": "UP Police SI",
   "post": "Sub inspector",
   "centre": "Lucknow Aliganj",
   "year": "2026-27"
  },
  {
   "name": "Sakshi Pandey",
-  "exam": "UPSI",
+  "exam": "UP Police SI",
   "post": "Sub Inspector",
   "centre": "Varanasi",
   "year": "2026-27"
@@ -945,14 +1281,14 @@
  },
  {
   "name": "Prabir Kumar Mahato",
-  "exam": "WBP CONSTABLE",
+  "exam": "WBP Constable",
   "post": "",
   "centre": "Kolkata",
   "year": "2026-27"
  },
  {
-  "name": "Udipta mondal",
-  "exam": "WBP CONSTABLE",
+  "name": "Udipta Mondal",
+  "exam": "WBP Constable",
   "post": "",
   "centre": "Kolkata",
   "year": "2026-27"
