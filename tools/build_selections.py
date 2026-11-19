@@ -17,7 +17,7 @@ WHAT IT NEVER WRITES
   Mobile numbers, PW registration numbers, exam roll numbers, "Not Qualified" / "Reserve List" students.
 
 OPTIONS
-  --accept "selected,final selected"   result values that count as selected (comma separated)
+  --accept "selected,final selected,ok"   result values that count as selected (comma separated)
   --out data/selections.json           output path
 The script prints, per tab, how many rows it kept and which result values it saw, so you can spot
 tabs that use other words (for example "Qualified" in a Final column) and add them with --accept.
@@ -46,7 +46,8 @@ BANK_FIX = {"bank of broda": "Bank of Baroda", "canara bank": "Canara Bank", "in
             "union bank of india": "Union Bank of India", "punjab national bank": "Punjab National Bank",
             "uco bank": "UCO Bank", "bank of india": "Bank of India", "central bank of india": "Central Bank of India",
             "bank of baroda": "Bank of Baroda"}
-SKIP_TAB = re.compile(r"pivot", re.I)
+SKIP_TAB = re.compile(r"pivot|^index$|^sheet\d*$|detail", re.I)
+EXAM_FIX = {"upp": "UP Police", "rrb-po": "IBPS RRB PO", "ssc gd cbt": "SSC GD", "ssc mts": "SSC MTS"}
 
 def clean(v):
     return re.sub(r"\s+", " ", str(v).strip()) if v is not None else ""
@@ -67,7 +68,7 @@ def nice_text(v):
 def find_header(rows):
     for i, r in enumerate(rows[:6]):
         cells = [clean(c).lower() for c in r]
-        if any(re.search(r"name of student|student name|^name$", c) for c in cells):
+        if any(re.search(r"name of student|name of candidate|student name|^name$", c) for c in cells):
             return i, cells
     return None, None
 
@@ -80,7 +81,7 @@ def col(cells, pattern, exclude=None):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("inputs", nargs="+", help="LABEL=file.xlsx (for example 2026-27=results.xlsx) or just file.xlsx")
-    ap.add_argument("--accept", default="selected,final selected")
+    ap.add_argument("--accept", default="selected,final selected,ok")
     ap.add_argument("--out", default="data/selections.json")
     args = ap.parse_args()
     accept = {x.strip().lower() for x in args.accept.split(",") if x.strip()}
@@ -104,11 +105,12 @@ def main():
             if hi is None:
                 print(f"[skip] {title}: no 'Name of Student' header")
                 continue
-            c_name = col(cells, r"name of student|student name|^name$")
+            c_name = col(cells, r"name of student|name of candidate|student name|^name$")
             c_branch = col(cells, r"^branch|^centre|^center")
             c_res = [i for i, c in enumerate(cells)
                      if re.search(r"final|result", c) and not re.search(r"link|pdf|photo|pic|reg|roll|image", c)]
-            c_exam = col(cells, r"^exam name")
+            c_exam = col(cells, r"^exam name|^name of exam")
+            c_cat = col(cells, r"^category$")
             c_post = col(cells, r"bank name|post name|^post$|department")
             c_photo = col(cells, r"photo|pic")
             exam_default = EXAM_NAMES.get(title.lower(), title)
@@ -125,6 +127,9 @@ def main():
                 if not any(v in accept for v in vals):
                     continue
                 exam = clean(g(c_exam)) or exam_default
+                exam = EXAM_FIX.get(exam.lower(), exam)
+                if c_cat is not None and clean(g(c_cat)).lower() == "ssc" and not exam.lower().startswith("ssc"):
+                    exam = "SSC " + exam
                 key = (name.lower(), exam.lower(), year)
                 if key in seen:
                     continue
