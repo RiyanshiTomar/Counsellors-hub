@@ -365,6 +365,24 @@ details.faq .ans { padding: 0 14px 14px; color: #2b3150; }
 .dd.bad li::before { content: "✕"; position: absolute; left: 0; color: #c43a2f; font-weight: 800; }
 .say { background: #f1f0fd; border-left: 4px solid var(--indigo); border-radius: 8px; padding: 10px 12px; margin-top: 6px; }
 
+
+/* ---------- fee calculator ---------- */
+.calc { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+.calc-in { display: grid; gap: 12px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .calc-in { grid-template-columns: repeat(3, 1fr); } }
+.calc-in label { display: grid; gap: 4px; font-weight: 600; font-size: .86rem; color: var(--mut); }
+.calc-in input { height: 44px; border: 1px solid var(--line); border-radius: 10px; padding: 0 12px; font: inherit; font-size: 1.05rem; background: #fff; color: var(--ink); width: 100%; }
+.calc-out { margin-top: 14px; background: #0b0f1a; color: #fff; border-radius: 12px; padding: 16px; }
+.ctotal span, .cbox span { font-size: .8rem; color: #aab3cf; display: block; }
+.ctotal b { font-family: var(--f-display); font-size: 2.2rem; display: block; line-height: 1.05; }
+.ctotal small { color: #aab3cf; }
+.cgrid { display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, .15); }
+@media (min-width: 760px) { .cgrid { grid-template-columns: repeat(4, 1fr); } }
+.cbox b { font-family: var(--f-display); font-size: 1.9rem; color: #48d597; display: block; line-height: 1.1; }
+.cbox small { color: #aab3cf; font-size: .76rem; }
+.calc-pitch { margin: 12px 0 0; background: #f1f0fd; border-left: 4px solid var(--indigo); border-radius: 8px; padding: 10px 12px; }
+.calc-pitch:empty { display: none; }
+
 /* ---------- footer ---------- */
 .foot { margin-top: 36px; background: var(--navy); color: #cfd7ee; padding: 24px 0 28px; }
 .foot-in { display: grid; gap: 14px; }
