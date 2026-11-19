@@ -15,5 +15,10 @@ window.GEW_CONFIG = {
      Built from the "Selection Result 2025-26" Google Sheet by tools/build_selections.py.
      Only final "Selected" students are kept. Mobile numbers, registration numbers and
      non-selected students are removed, so nothing private ships with the website. */
-  selectionsFile: "data/selections.json"
+  selectionsFile: "data/selections.json",
+
+  /* "Coming up" live source (optional). Paste the ID of a separate Google Sheet that holds only exam dates
+     (shared: Anyone with the link = Viewer). Leave "" to use data/upcoming.json. */
+  upcomingSheetId: "14xDdmFVXti3o9sm4hOO4b6uT3pg2LXv6Dg-2zRKDkGw",
+  upcomingSheetTab: "Sheet1"
 };
