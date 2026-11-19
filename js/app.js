@@ -336,8 +336,10 @@
     var bk = backups(e);
     if (bk.length) faq.push(["What should the student prepare alongside?", "Suggested backups: " + bk.map(function (b) { return b.name; }).join(", ") + ". They share a similar qualification level and syllabus base."]);
 
+    var dreamLine = (T.dream && T.dream.byCat[e.cat]) || "";
     return '<div class="panel"><h2>Talking points</h2><ul class="list">' + talk.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul>" +
       '<div class="copy-row"><button class="btn line sm" type="button" data-copy="talk">' + svg("copy") + "Copy talking points</button></div></div>" +
+      '<div class="panel"><h2>Dream selling</h2>' + (dreamLine ? "<p>" + esc(dreamLine) + "</p>" : "") + '<ul class="list">' + [e.pay ? "Shuruaati pay: " + e.pay : "", "Sapna dikhao, par selection ki guarantee kabhi mat do."].filter(Boolean).map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + '</ul><p class="tnote" style="margin-top:10px">Poore dream selling points aur scripts: <a href="#/training">Training page</a>.</p></div>' +
       '<div class="panel"><h2>Questions to ask the student</h2><ul class="list">' + ask.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul></div>" +
       '<div class="panel"><h2>Common student questions</h2>' + faq.map(function (f) { return '<details class="faq"><summary>' + esc(f[0]) + '</summary><div class="ans">' + esc(f[1]) + "</div></details>"; }).join("") + "</div>" +
       (bk.length ? '<div class="panel"><h2>Backup exams</h2><div class="xgrid" style="grid-template-columns:1fr">' + bk.map(function (b) { return examCard(b); }).join("") + "</div></div>" : "");
@@ -480,13 +482,46 @@
   /* ============================================================
      TRAINING
      ============================================================ */
+  function inr(n, d) { return "₹" + Number(n).toLocaleString("en-IN", { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }); }
+  function feeSplit(total, months, cls) {
+    var days = months * 365 / 12, month = total / months, week = month / 4.33, day = total / days;
+    return { days: days, month: month, week: week, day: day, cls: day / cls };
+  }
+  function feePitchText(total, months, cls) {
+    var r = feeSplit(total, months, cls);
+    return "Is course ki total fees " + inr(total) + " hai aur validity " + months + " mahine (" + (months / 12 % 1 === 0 ? months / 12 + " saal" : (months / 12).toFixed(1) + " saal") + ") ki hai. " +
+      "Isko todkar dekhein to har mahine lagbhag " + inr(r.month) + ", har hafte " + inr(r.week) + ", roz " + inr(r.day, 2) + ", aur agar roz " + cls + " classes hon to ek class " + inr(r.cls, 2) + " ki padti hai.";
+  }
+  function cardList(items, fn) { return items.map(fn).join(""); }
+  function scriptCards(list, attr) {
+    return list.map(function (x, i) {
+      return '<details class="faq"><summary>' + esc(x.title) + '</summary><div class="ans"><div class="say">' + esc(x.text) + '</div><div class="copy-row"><button class="btn line sm" type="button" data-' + attr + '="' + i + '">' + svg("copy") + "Copy script</button></div></div></details>";
+    }).join("");
+  }
+
   function viewTraining() {
+    var F = T.fee, DR = T.dream;
     mount(
-      '<section class="phead tone-banking"><div class="wrap"><div class="crumbs"><a href="#/">Home</a><span>/</span><span>Training</span></div><h1>Counsellor training</h1><p>A simple flow, the right questions, and honest answers to common objections.</p></div></section>' +
+      '<section class="phead tone-banking"><div class="wrap"><div class="crumbs"><a href="#/">Home</a><span>/</span><span>Training</span></div><h1>Counsellor training</h1><p>Ek simple flow, sahi sawal, fees ko todkar batane ka tareeka, sapne dikhane ke points aur objections ke imaandar jawab.</p>' +
+      '<div class="acts"><a class="btn saf sm" href="#fee">Fee Pitch Calculator</a><a class="btn ghost sm" href="#dream">Dream selling</a></div></div></section>' +
       '<div class="wrap">' +
       '<section class="sec"><div class="sec-h"><h2>The counselling flow</h2></div><div class="panel"><ol class="steps">' + T.flow.map(function (s) { return "<li><div><b>" + esc(s.step) + "</b><br><span>" + esc(s.body) + "</span></div></li>"; }).join("") + "</ol></div></section>" +
-      '<section class="sec"><div class="sec-h"><h2>Discovery questions</h2><button class="btn line sm" type="button" id="cpq">' + svg("copy") + "Copy all</button></div><div class=\"panel\"><ul class=\"list\">" + T.discovery.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul></div></section>" +
-      '<section class="sec"><div class="sec-h"><h2>Handling objections</h2><p>Say it in your own words. Never promise a result.</p></div>' +
+
+      '<section class="sec"><div class="sec-h"><h2>Jaanch-Partal</h2><button class="btn line sm" type="button" id="cpq">' + svg("copy") + "Copy all</button></div><div class=\"panel\"><ul class=\"list\">" + T.discovery.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul></div></section>" +
+
+      '<section class="sec" id="fee"><div class="sec-h"><h2>Fees ko todkar batana</h2><p>' + esc(F.intro) + "</p></div>" +
+      '<div class="calc"><div class="calc-in"><label>Total course fee (₹)<input id="cf1" type="number" inputmode="numeric" min="1" value="25000"></label><label>Validity (months)<input id="cf2" type="number" inputmode="numeric" min="1" max="120" value="36"></label><label>Classes per day<input id="cf3" type="number" inputmode="numeric" min="1" max="10" value="2"></label></div>' +
+      '<div class="calc-out" id="cout"></div><div class="calc-pitch" id="cpitch"></div><div class="copy-row"><button class="btn saf sm" type="button" id="cfcopy">' + svg("copy") + 'Copy fee pitch</button></div></div>' +
+      '<div class="two" style="margin-top:14px"><div class="dd good"><h3>Best practice</h3><ul>' + cardList(F.principles, function (x) { return "<li><b>" + esc(x.t) + ".</b> " + esc(x.d) + "</li>"; }) + '</ul></div><div class="dd bad"><h3>Ye galtiyan mat karo</h3><ul>' + cardList(F.mistakes, function (x) { return "<li>" + esc(x) + "</li>"; }) + "</ul></div></div>" +
+      '<h3 class="group-h" style="margin-top:20px">Fee pitch scripts</h3>' + scriptCards(F.scripts, "fs") + "</section>" +
+
+      '<section class="sec" id="dream"><div class="sec-h"><h2>Dream selling</h2><p>' + esc(DR.intro) + "</p></div>" +
+      '<div class="two"><div class="dd"><h3>Sapne jagane wale sawal</h3><ul class="list">' + cardList(DR.questions, function (x) { return "<li>" + esc(x) + "</li>"; }) + '</ul></div><div class="dd"><h3>Sarkari naukri ke dream points</h3><ul class="list">' + cardList(DR.points, function (x) { return "<li><b>" + esc(x.t) + ":</b> " + esc(x.d) + "</li>"; }) + "</ul></div></div>" +
+      '<h3 class="group-h" style="margin-top:20px">Exam family ke hisaab se sapna</h3><div class="two">' + D.categories.map(function (c) { return '<div class="dd"><h3>' + esc(c.name) + "</h3><p style=\"margin:0\">" + esc(DR.byCat[c.id] || "") + "</p></div>"; }).join("") + "</div>" +
+      '<h3 class="group-h" style="margin-top:20px">Dream selling scripts</h3>' + scriptCards(DR.scripts, "ds") +
+      '<div class="dd good" style="margin-top:14px"><h3>Reality check: imaandari se</h3><ul>' + cardList(DR.reality, function (x) { return "<li>" + esc(x) + "</li>"; }) + "</ul></div></section>" +
+
+      '<section class="sec"><div class="sec-h"><h2>Handling objections</h2><p>Apne shabdon me bolo. Kabhi result ka vaada mat karo.</p></div>' +
       T.objections.map(function (o, i) { return '<details class="faq"><summary>“' + esc(o.q) + '”</summary><div class="ans"><div class="say">' + esc(o.a) + '</div><div class="copy-row"><button class="btn line sm" type="button" data-obj="' + i + '">' + svg("copy") + "Copy script</button></div></div></details>"; }).join("") + "</section>" +
       '<section class="sec"><div class="sec-h"><h2>Do and don\'t</h2></div><div class="two"><div class="dd good"><h3>Do</h3><ul>' + T.dos.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + '</ul></div><div class="dd bad"><h3>Don\'t</h3><ul>' + T.donts.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul></div></div></section>" +
       '<section class="sec"><div class="sec-h"><h2>Why each exam family</h2></div><div class="two">' + D.categories.map(function (c) { return '<div class="dd"><h3>' + esc(c.name) + "</h3><ul class=\"list\" style=\"list-style:none\">" + (T.quickPitch[c.id] || []).map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("") + "</ul></div>"; }).join("") + "</div></section>" +
@@ -495,6 +530,25 @@
     );
     $("#cpq").addEventListener("click", function () { copyText(T.discovery.map(function (x) { return "• " + x; }).join("\n"), "Questions copied"); });
     $$("[data-obj]").forEach(function (b) { b.addEventListener("click", function () { copyText(T.objections[+b.getAttribute("data-obj")].a, "Script copied"); }); });
+    $$("[data-fs]").forEach(function (b) { b.addEventListener("click", function () { copyText(F.scripts[+b.getAttribute("data-fs")].text, "Script copied"); }); });
+    $$("[data-ds]").forEach(function (b) { b.addEventListener("click", function () { copyText(DR.scripts[+b.getAttribute("data-ds")].text, "Script copied"); }); });
+
+    function vals() { return [Math.max(0, parseFloat($("#cf1").value) || 0), Math.max(0, parseFloat($("#cf2").value) || 0), Math.max(0, parseFloat($("#cf3").value) || 0)]; }
+    function calc() {
+      var v = vals(), out = $("#cout"), pt = $("#cpitch");
+      if (!v[0] || !v[1] || !v[2]) { out.innerHTML = '<p class="tnote">Fee, validity aur classes per day teeno daalo.</p>'; pt.textContent = ""; return; }
+      var r = feeSplit(v[0], v[1], v[2]);
+      function box(l, val, how) { return '<div class="cbox"><span>' + l + "</span><b>" + val + "</b><small>" + how + "</small></div>"; }
+      out.innerHTML =
+        '<div class="ctotal"><span>Total course fee</span><b>' + inr(v[0]) + "</b><small>Validity: " + v[1] + " months</small></div>" +
+        '<div class="cgrid">' + box("Per month", inr(r.month), inr(v[0]) + " ÷ " + v[1]) + box("Per week", inr(r.week), inr(r.month) + " ÷ 4.33") + box("Per day", inr(r.day, 2), inr(v[0]) + " ÷ " + Math.round(r.days).toLocaleString("en-IN") + " days") + box("Per class (" + v[2] + " daily)", inr(r.cls, 2), inr(r.day, 2) + " ÷ " + v[2]) + "</div>";
+      pt.textContent = feePitchText(v[0], v[1], v[2]);
+    }
+    ["cf1", "cf2", "cf3"].forEach(function (id) { $("#" + id).addEventListener("input", calc); });
+    $("#cfcopy").addEventListener("click", function () { var v = vals(); if (v[0] && v[1] && v[2]) copyText(feePitchText(v[0], v[1], v[2]), "Fee pitch copied"); else toast("Pehle sahi numbers daalo"); });
+    calc();
+    if (location.hash.indexOf("#fee") === 0 || location.hash.indexOf("#dream") === 0) { /* in-page anchors handled below */ }
+    $$('a[href="#fee"], a[href="#dream"]').forEach(function (l) { l.addEventListener("click", function (ev) { ev.preventDefault(); var t = $(l.getAttribute("href")); if (t) t.scrollIntoView({ behavior: "smooth", block: "start" }); }); });
   }
 
   /* ============================================================
