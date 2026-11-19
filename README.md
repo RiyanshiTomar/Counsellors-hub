@@ -1,4 +1,4 @@
-# Govt Exam Wallah — Counsellor Hub (v2)
+# Govt Exam Wallah — Counsellor Hub (v5)
 
 Static website (HTML + CSS + JS). No build step, no npm.
 
@@ -12,11 +12,11 @@ Website `data/selections.json` se selections dikhati hai. Isme sirf **final Sele
 Mobile numbers, registration numbers aur Not Qualified / Reserve List wale students file me kabhi nahi jaate,
 isliye public site par kuch private leak nahi hota.
 
-Is zip me abhi **IBPS Clerk (2025-26) ke 20 selected students** already added hain. Script chalane par ye file poori tarah naye data se replace ho jati hai. Baaki sab tabs ke liye:
+Is zip me **2024-25 ke 48 selections** aur **IBPS Clerk (2025-26) ke 20 selections** already added hain. Script chalane par ye file poori tarah naye data se replace ho jati hai. Baaki sab tabs ke liye:
 
 1. Har saal ki Google Sheet -> File -> Download -> **Microsoft Excel (.xlsx)**
 2. `pip install openpyxl`
-3. `python tools/build_selections.py "2025-26=results-2025-26.xlsx" "2026-27=results-2026-27.xlsx"`
+3. `python tools/build_selections.py "2024-25=results-2024-25.xlsx" "2025-26=results-2025-26.xlsx" "2026-27=results-2026-27.xlsx"`
    (`=` se pehle ka text website par year ke roop me dikhta hai. Ek hi file ho to bhi chalega.)
 4. Script har tab ka report print karti hai (kitne rows kept, kaunse result words mile).
    Agar kisi tab me "Selected" ki jagah koi aur word hai (jaise "Qualified"), to chalao:
@@ -32,7 +32,7 @@ Agar photo ka https link ho (ya Drive share link), to wo script se aa jata hai.
 | `js/config.js` | Helpline, centres, selections count, last-updated date |
 | `js/data-core.js` | SSC, Banking, Railways exams + "Coming up" dates |
 | `js/data-states.js` | State-level exams |
-| `js/data-training.js` | Training flow, objection scripts, do/don't |
+| `js/data-training.js` | Training flow, Jaanch-Partal, fee pitch, dream selling, objection scripts |
 | `data/selections.json` | Selected students (script se banta hai) |
 | `assets/` | Logo, poster |
 
