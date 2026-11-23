@@ -140,6 +140,36 @@
     stages: ["Written exam", "Document Verification"],
     site: "https://jkssb.nic.in", tags: ["jk", "j&k", "teacher", "general line", "jkssb"] });
 
+  /* J&K Bank (a bank, not JKSSB — recruitment is conducted through IBPS) */
+  var JKB = "Jammu & Kashmir Bank Ltd (J&K Bank); online exams conducted through IBPS";
+  var JKB_STATUS = { text: "2026 recruitment: 1,397 posts (PO 343, Banking Associate 1,054). Applications 7 Nov – 26 Nov 2026 at jkb.bank.in. Exam dates not announced yet.", verify: true };
+  var JKB_DOM = "Candidate must hold a domicile certificate of the same UT (J&K or Ladakh) as the advertisement they apply under. Check the notification for the local-language and domicile rules.";
+  S({ id: "jk-bank-po", state: "jk", name: "J&K Bank PO", full: "Probationary Officer (JMGS-I) — J&K Bank", body: JKB,
+    minEdu: 3, level: "Graduate", qual: "Graduate in any discipline from a recognised university, held by the last date of application. UT domicile (J&K or Ladakh) as per the advertisement.",
+    ageMin: 20, ageMax: 30, ageText: "20 to 30 years as on 1 Jan 2026. Relaxation: SC/ST 5 years, PwBD 10 years, SEBC 3 years (J&K) — Ladakh notice differs, so read it. No relaxation for EWS.",
+    posts: ["Probationary Officer (JMGS Scale-I) — J&K: 323, Ladakh: 20 (2026 drive)"],
+    pay: "Starting basic ₹48,480 (JMGS-I) plus allowances and bank benefits. 2-year probation; service bond ₹2 lakh (2026 notice).",
+    mode: "Online (IBPS portal)", fee: "2026: ₹1,200 + GST for General; concessional for SC/ST/SEBC/PwBD — sources differ (₹1,000 vs ₹1,200), confirm in the notification.",
+    stages: ["Online Preliminary", "Online Mains (objective + descriptive)", "Interview", "Final merit: Mains and Interview in 80:20 ratio"],
+    pattern: [
+      { title: "Preliminary (2026 notice)", cols: ["Section", "Questions", "Marks", "Time"], rows: [["English", "30", "30", "20 min"], ["Quantitative Aptitude", "35", "30", "20 min"], ["Reasoning", "35", "40", "20 min"]], note: "Negative marking: 1/4 mark per wrong answer. Confirm in the latest notice." },
+      { title: "Mains (2026 notice)", cols: ["Section", "Questions", "Marks", "Time"], rows: [["Reasoning", "40", "60", "45 min"], ["General / Economy / Banking + Digital & Financial Awareness", "50", "60", "35 min"], ["English", "40", "20", "35 min"], ["Data Analysis & Interpretation", "40", "60", "45 min"], ["Descriptive", "2", "25", "30 min"]], note: "Interview carries 100 marks." }
+    ],
+    syllabus: [{ area: "Prelims", topics: "English, quantitative aptitude, reasoning" }, { area: "Mains", topics: "Reasoning, general / economy / banking awareness, digital and financial awareness, English, data analysis and interpretation, descriptive writing" }],
+    status: JKB_STATUS, site: "https://jkb.bank.in/careers/", stateNote: JKB_DOM + " Pattern and fee above come from secondary sources — verify on jkb.bank.in.",
+    tags: ["jk", "j&k", "jk bank", "jammu kashmir bank", "bank", "po", "probationary officer", "ibps", "ladakh"] });
+  S({ id: "jk-bank-banking-associate", state: "jk", name: "J&K Bank Banking Associate", full: "Banking Associate (Clerical) — J&K Bank", body: JKB,
+    minEdu: 3, level: "Graduate", qual: "Graduate in any discipline from a recognised university, held by the last date of application. UT domicile (J&K or Ladakh) as per the advertisement.",
+    ageMin: 20, ageMax: 30, ageText: "20 to 30 years as on 1 Jan 2026. Relaxation: SC/ST 5 years, PwBD 10 years, SEBC 3 years (J&K), ex-servicemen service + 3 years, J&K Bank apprentices 1 year. No relaxation for EWS.",
+    posts: ["Banking Associate — J&K: 1,033, Ladakh: 21 (2026 drive)"],
+    pay: "Starting basic ₹24,050 plus allowances. 6-month probation (extendable); service bond ₹1 lakh (2026 notice).",
+    mode: "Online (IBPS portal)", fee: "2026: ₹800 + GST for General; ₹600 + GST for SC/ST/SEBC/PwBD and ex-servicemen (confirm in the notification).",
+    stages: ["Single online exam", "Selection on aggregate score and document verification"],
+    pattern: [{ title: "Online exam (2026 notice)", cols: ["Detail", "Value"], rows: [["Subjects", "English, Quantitative Aptitude, Reasoning"], ["Questions / Marks", "100 / 100"], ["Duration", "60 minutes"], ["Negative marking", "1/4 mark per wrong answer"]], note: "Apprentices of J&K Bank may get bonus marks — check the notice." }],
+    syllabus: [{ area: "Core", topics: "English language, quantitative aptitude, reasoning ability" }],
+    status: JKB_STATUS, site: "https://jkb.bank.in/careers/", stateNote: JKB_DOM + " Pattern and fee above come from secondary sources — verify on jkb.bank.in.",
+    tags: ["jk", "j&k", "jk bank", "jammu kashmir bank", "bank", "banking associate", "clerk", "ibps", "ladakh"] });
+
   /* ---------------- CHHATTISGARH ---------------- */
   var CGV = "Chhattisgarh Professional Examination Board (Vyapam) / department as notified";
   S({ id: "cg-patwari", state: "cg", name: "Chhattisgarh Patwari", full: "Patwari", body: CGV,
