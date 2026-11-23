@@ -1,0 +1,61 @@
+{
+ "updated": "19 Nov 2026",
+ "items": [
+  {
+   "start": "2026-11-21",
+   "end": "2026-11-22",
+   "when": "21–22 Nov 2026",
+   "title": "IBPS RRB PO — Prelims",
+   "id": "ibps-rrb-po",
+   "tentative": false
+  },
+  {
+   "start": "2026-12-06",
+   "end": "2026-12-13",
+   "when": "6, 12 & 13 Dec 2026",
+   "title": "IBPS RRB Clerk — Prelims",
+   "id": "ibps-rrb-clerk",
+   "tentative": false
+  },
+  {
+   "start": "2026-12-01",
+   "end": "2026-12-31",
+   "when": "Dec 2026",
+   "title": "SSC CGL — Tier-II",
+   "id": "ssc-cgl",
+   "tentative": true
+  },
+  {
+   "start": "2026-12-20",
+   "end": "2026-12-20",
+   "when": "20 Dec 2026",
+   "title": "IBPS RRB PO — Mains; Officer Scale II & III single exam",
+   "id": "ibps-rrb-po",
+   "tentative": false
+  },
+  {
+   "start": "2026-12-27",
+   "end": "2026-12-27",
+   "when": "27 Dec 2026",
+   "title": "IBPS Clerk — Mains",
+   "id": "ibps-clerk",
+   "tentative": false
+  },
+  {
+   "start": "2027-01-01",
+   "end": "2027-03-31",
+   "when": "Jan–Mar 2027",
+   "title": "SSC GD Constable — CBE",
+   "id": "ssc-gd",
+   "tentative": true
+  },
+  {
+   "start": "2027-01-30",
+   "end": "2027-01-30",
+   "when": "30 Jan 2027",
+   "title": "IBPS RRB Clerk — Mains",
+   "id": "ibps-rrb-clerk",
+   "tentative": false
+  }
+ ]
+}
