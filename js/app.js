@@ -91,6 +91,7 @@
     if (p[0] === "e" && examById[p[1]]) { setNav("c"); return viewExam(p[1], r.q); }
     if (p[0] === "finder") { setNav("finder"); return viewFinder(r.q); }
     if (p[0] === "selections") { setNav("selections"); return viewSelections(); }
+    if (p[0] === "vacancies") { setNav("vacancies"); return viewVacancies(); }
     if (p[0] === "training") { setNav("training"); return viewTraining(); }
     setNav(""); notFound();
   }
@@ -473,6 +474,53 @@
       .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
       .then(function (list) { selCache = { list: Array.isArray(list) ? list : [] }; return selCache; })
       .catch(function () { selCache = { list: [] }; return selCache; });
+  }
+
+
+  function vacRows(txt) {
+    var rows = csvRows(txt).filter(function (r) { return r.some(function (c) { return String(c).trim(); }); });
+    if (rows.length < 2) throw new Error("empty");
+    var h = rows[0].map(function (c) { return String(c).trim().toLowerCase(); });
+    return rows.slice(1).map(function (r) {
+      var g = function (n) { var k = h.indexOf(n); return k < 0 ? "" : String(r[k] || "").trim(); };
+      return { cat: g("category"), exam: g("exam"), post: g("post"), vac: g("vacancies"), last: g("lastdate"), link: g("link"), note: g("notes") };
+    }).filter(function (x) { return x.exam || x.post; });
+  }
+  function loadVacancies() {
+    function fromFile() { return fetch("data/vacancies.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }).then(function (j) { return { items: j.items || [], src: j.updated || "" }; }); }
+    var sid = CFG.vacanciesSheetId || CFG.upcomingSheetId;
+    if (!sid || !CFG.vacanciesSheetTab) return fromFile();
+    var url = "https://docs.google.com/spreadsheets/d/" + sid + "/gviz/tq?tqx=out:csv&sheet=" + encodeURIComponent(CFG.vacanciesSheetTab);
+    return fetch(url, { cache: "no-store" }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.text(); })
+      .then(function (t) { if (/^\s*</.test(t)) throw new Error("not public"); var it = vacRows(t); if (!it.length) throw new Error("none"); return { items: it, src: "live from sheet" }; })
+      .catch(fromFile);
+  }
+  function viewVacancies() {
+    mount(
+      '<section class="phead tone-ssc"><div class="wrap"><div class="crumbs"><a href="#/">Home</a><span>/</span><span>Vacancies</span></div><h1>Latest vacancies</h1><p>Open recruitments across SSC, Banking, Railways and State exams. Closed ones disappear automatically. <span id="vAsOf"></span></p></div></section>' +
+      '<div class="wrap" id="vacBody"><div class="loading"><span class="spin"></span>Loading vacancies…</div></div>');
+    loadVacancies().then(function (res) {
+      var t = todayISO();
+      var items = res.items.filter(function (v) { return !/^\d{4}-\d{2}-\d{2}$/.test(v.last) || v.last >= t; })
+        .sort(function (x, y) { return (x.last || "9999") < (y.last || "9999") ? -1 : 1; });
+      if ($("#vAsOf") && res.src) $("#vAsOf").textContent = "(" + res.src + ")";
+      var cats = []; items.forEach(function (v) { if (v.cat && cats.indexOf(v.cat) < 0) cats.push(v.cat); });
+      $("#vacBody").innerHTML = '<div class="filters"><input type="search" id="vq" placeholder="Search exam or post" aria-label="Search vacancies"><select id="vc" aria-label="Category"><option value="">All categories</option>' + cats.map(function (c) { return "<option>" + esc(c) + "</option>"; }).join("") + '</select></div><p class="muted" id="vn" style="margin:8px 0"></p><div id="vl"></div>';
+      function draw() {
+        var q = $("#vq").value.toLowerCase(), c = $("#vc").value;
+        var f = items.filter(function (v) { return (!c || v.cat === c) && (!q || (v.exam + " " + v.post).toLowerCase().indexOf(q) >= 0); });
+        $("#vn").textContent = f.length + " open";
+        $("#vl").innerHTML = f.length ? f.map(function (v) {
+          var left = "";
+          if (/^\d{4}-\d{2}-\d{2}$/.test(v.last)) { var d = Math.round((new Date(v.last + "T00:00:00") - new Date(t + "T00:00:00")) / 864e5); left = d === 0 ? "Last day today" : d + " days left"; }
+          var safe = /^https?:\/\//.test(v.link);
+          return '<div class="card" style="margin:10px 0;padding:14px"><b>' + esc(v.exam) + '</b>' + (v.cat ? ' <span class="badge ok sm">' + esc(v.cat) + "</span>" : "") + (v.post ? "<div>" + esc(v.post) + "</div>" : "") +
+            '<div class="muted" style="font-size:.9rem;margin-top:4px">' + (v.vac ? "Vacancies: " + esc(v.vac) + " · " : "") + (v.last ? "Last date: " + esc(v.last) + (left ? " (" + left + ")" : "") : "Last date: see notification") + "</div>" + (v.note ? '<div class="muted" style="font-size:.9rem">' + esc(v.note) + "</div>" : "") +
+            (safe ? '<a class="btn" style="margin-top:8px" target="_blank" rel="noopener noreferrer" href="' + esc(v.link) + '">Official notification</a>' : "") + "</div>";
+        }).join("") : '<div class="empty"><b>Koi open vacancy nahi mili</b>Official sites check karo: ssc.gov.in, ibps.in, rrbapply.gov.in.</div>';
+      }
+      $("#vq").addEventListener("input", draw); $("#vc").addEventListener("change", draw); draw();
+    }).catch(function () { $("#vacBody").innerHTML = '<div class="empty" style="margin-top:20px"><b>Vacancies load nahi hui</b>Official sites check karo: ssc.gov.in, ibps.in, rrbapply.gov.in.</div>'; });
   }
 
   function viewSelections() {
