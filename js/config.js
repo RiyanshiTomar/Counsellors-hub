@@ -9,7 +9,7 @@ window.GEW_CONFIG = {
   helpline: "7303699227",
   centres: "28",
   selections: "1K+",
-  lastUpdated: "16 Nov 2026",
+  lastUpdated: "23 Nov 2026",
 
   /* Selections data: data/selections.json
      Built from the "Selection Result 2025-26" Google Sheet by tools/build_selections.py.
@@ -20,5 +20,9 @@ window.GEW_CONFIG = {
   /* "Coming up" live source (optional). Paste the ID of a separate Google Sheet that holds only exam dates
      (shared: Anyone with the link = Viewer). Leave "" to use data/upcoming.json. */
   upcomingSheetId: "14xDdmFVXti3o9sm4hOO4b6uT3pg2LXv6Dg-2zRKDkGw",
-  upcomingSheetTab: "Sheet1"
+  upcomingSheetTab: "Sheet1",
+
+  /* Vacancies page: tab "Vacancies" in the same sheet (columns: Category, Exam, Post, Vacancies, LastDate, Link, Notes) */
+  vacanciesSheetId: "14xDdmFVXti3o9sm4hOO4b6uT3pg2LXv6Dg-2zRKDkGw",
+  vacanciesSheetTab: "Vacancies"
 };
