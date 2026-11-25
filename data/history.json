@@ -1,0 +1,571 @@
+{
+ "updated": "25 Nov 2026",
+ "note": "Vacancy counts are as published on coaching and news sites and may be revised later. Year means the notification year as reported by the source. Check the official notice before quoting a number.",
+ "exams": [
+  {
+   "id": "ssc-cgl",
+   "name": "SSC CGL",
+   "cat": "SSC",
+   "rows": [
+    {
+     "year": 2017,
+     "total": 9276
+    },
+    {
+     "year": 2018,
+     "total": 11271
+    },
+    {
+     "year": 2019,
+     "total": 8428
+    },
+    {
+     "year": 2020,
+     "total": 7035
+    },
+    {
+     "year": 2021,
+     "total": 7621
+    },
+    {
+     "year": 2022,
+     "total": 37409,
+     "note": "Revised later to 36,001"
+    },
+    {
+     "year": 2023,
+     "total": 8415
+    },
+    {
+     "year": 2024,
+     "total": 18174
+    },
+    {
+     "year": 2025,
+     "total": 15118,
+     "note": "Final list: 14,582"
+    },
+    {
+     "year": 2026,
+     "total": 12256,
+     "note": "Initial count, may be revised"
+    }
+   ]
+  },
+  {
+   "id": "ssc-chsl",
+   "name": "SSC CHSL",
+   "cat": "SSC",
+   "rows": [
+    {
+     "year": 2022,
+     "total": 4522
+    },
+    {
+     "year": 2023,
+     "total": 1211
+    },
+    {
+     "year": 2024,
+     "total": 3437
+    },
+    {
+     "year": 2025,
+     "total": 3552
+    },
+    {
+     "year": 2026,
+     "total": 2536,
+     "note": "Tentative"
+    }
+   ]
+  },
+  {
+   "id": "ssc-cpo",
+   "name": "SSC CPO",
+   "cat": "SSC",
+   "rows": [
+    {
+     "year": 2020,
+     "total": 1564
+    },
+    {
+     "year": 2022,
+     "total": 4300
+    },
+    {
+     "year": 2023,
+     "total": 1879
+    },
+    {
+     "year": 2025,
+     "total": 5308
+    },
+    {
+     "year": 2026,
+     "total": 1871,
+     "note": "Tentative"
+    }
+   ],
+   "note": "2021 and 2024 figures not found yet."
+  },
+  {
+   "id": "ssc-mts",
+   "name": "SSC MTS & Havaldar",
+   "cat": "SSC",
+   "rows": [
+    {
+     "year": 2019,
+     "total": 7099
+    },
+    {
+     "year": 2021,
+     "total": 7301
+    },
+    {
+     "year": 2024,
+     "total": 9583,
+     "note": "Includes 3,439 Havaldar"
+    },
+    {
+     "year": 2025,
+     "total": 7948,
+     "note": "Includes 1,138 Havaldar"
+    }
+   ],
+   "note": "2022 and 2023 figures not found yet."
+  },
+  {
+   "id": "ssc-gd",
+   "name": "SSC GD Constable",
+   "cat": "SSC",
+   "rows": [
+    {
+     "year": 2019,
+     "total": 54593
+    },
+    {
+     "year": 2020,
+     "total": 60210
+    },
+    {
+     "year": 2021,
+     "total": 25271
+    },
+    {
+     "year": 2022,
+     "total": 50187
+    },
+    {
+     "year": 2024,
+     "total": 46617
+    },
+    {
+     "year": 2025,
+     "total": 53690
+    },
+    {
+     "year": 2026,
+     "total": 25487
+    }
+   ],
+   "note": "2023 figure not found yet."
+  },
+  {
+   "id": "ssc-steno",
+   "name": "SSC Stenographer",
+   "cat": "SSC",
+   "rows": [
+    {
+     "year": 2023,
+     "total": 1207,
+     "note": "Grade C 93, Grade D 1,114"
+    },
+    {
+     "year": 2024,
+     "total": 1926,
+     "note": "Grades C and D combined"
+    },
+    {
+     "year": 2025,
+     "total": 261,
+     "note": "Tentative"
+    }
+   ]
+  },
+  {
+   "id": "ibps-po",
+   "name": "IBPS PO",
+   "cat": "Banking",
+   "rows": [
+    {
+     "year": 2020,
+     "total": 3517
+    },
+    {
+     "year": 2021,
+     "total": 5809
+    },
+    {
+     "year": 2022,
+     "total": 6432
+    },
+    {
+     "year": 2023,
+     "total": 3049
+    },
+    {
+     "year": 2024,
+     "total": 5973,
+     "note": "Revised"
+    },
+    {
+     "year": 2025,
+     "total": 5208
+    },
+    {
+     "year": 2026,
+     "total": 7365,
+     "note": "Revised"
+    }
+   ],
+   "note": "Year-wise figures differ slightly between sources; check the official IBPS notice."
+  },
+  {
+   "id": "ibps-clerk",
+   "name": "IBPS Clerk",
+   "cat": "Banking",
+   "rows": [
+    {
+     "year": 2021,
+     "total": 7858
+    },
+    {
+     "year": 2022,
+     "total": 6635
+    },
+    {
+     "year": 2023,
+     "total": 4545
+    },
+    {
+     "year": 2024,
+     "total": 11826
+    },
+    {
+     "year": 2025,
+     "total": 15701
+    }
+   ]
+  },
+  {
+   "id": "ibps-rrb-po",
+   "name": "IBPS RRB PO",
+   "cat": "Banking",
+   "rows": [
+    {
+     "year": 2018,
+     "total": 3312
+    },
+    {
+     "year": 2019,
+     "total": 3381
+    },
+    {
+     "year": 2020,
+     "total": 4201
+    },
+    {
+     "year": 2021,
+     "total": 4846
+    },
+    {
+     "year": 2022,
+     "total": 2676
+    },
+    {
+     "year": 2023,
+     "total": 2485
+    },
+    {
+     "year": 2024,
+     "total": 3583
+    },
+    {
+     "year": 2025,
+     "total": 3928
+    },
+    {
+     "year": 2026,
+     "total": 4256
+    }
+   ],
+   "note": "Officer Scale I only."
+  },
+  {
+   "id": "ibps-rrb-clerk",
+   "name": "IBPS RRB Clerk",
+   "cat": "Banking",
+   "rows": [
+    {
+     "year": 2018,
+     "total": 5249
+    },
+    {
+     "year": 2019,
+     "total": 3688
+    },
+    {
+     "year": 2020,
+     "total": 5076
+    },
+    {
+     "year": 2021,
+     "total": 7001
+    },
+    {
+     "year": 2022,
+     "total": 4483
+    },
+    {
+     "year": 2023,
+     "total": 5538
+    },
+    {
+     "year": 2024,
+     "total": 5800
+    },
+    {
+     "year": 2025,
+     "total": 8802
+    },
+    {
+     "year": 2026,
+     "total": 8183
+    }
+   ],
+   "note": "Office Assistant (Multipurpose)."
+  },
+  {
+   "id": "sbi-po",
+   "name": "SBI PO",
+   "cat": "Banking",
+   "rows": [
+    {
+     "year": 2020,
+     "total": 2000
+    },
+    {
+     "year": 2021,
+     "total": 2056
+    },
+    {
+     "year": 2022,
+     "total": 1673
+    },
+    {
+     "year": 2023,
+     "total": 2000
+    },
+    {
+     "year": 2024,
+     "total": 600
+    },
+    {
+     "year": 2025,
+     "total": 541
+    }
+   ]
+  },
+  {
+   "id": "sbi-clerk",
+   "name": "SBI Clerk",
+   "cat": "Banking",
+   "rows": [
+    {
+     "year": 2022,
+     "total": 5486
+    },
+    {
+     "year": 2023,
+     "total": 8773
+    },
+    {
+     "year": 2024,
+     "total": 13735
+    },
+    {
+     "year": 2025,
+     "total": 6589
+    },
+    {
+     "year": 2026,
+     "total": 7680,
+     "note": "Plus 1,538 backlog in a separate drive"
+    }
+   ]
+  },
+  {
+   "id": "rbi-grade-b",
+   "name": "RBI Grade B",
+   "cat": "Banking",
+   "rows": [
+    {
+     "year": 2013,
+     "total": 98
+    },
+    {
+     "year": 2014,
+     "total": 117
+    },
+    {
+     "year": 2015,
+     "total": 134
+    },
+    {
+     "year": 2016,
+     "total": 163
+    },
+    {
+     "year": 2017,
+     "total": 145
+    },
+    {
+     "year": 2018,
+     "total": 166
+    },
+    {
+     "year": 2019,
+     "total": 127
+    },
+    {
+     "year": 2021,
+     "total": 270
+    },
+    {
+     "year": 2022,
+     "total": 238
+    },
+    {
+     "year": 2023,
+     "total": 222
+    },
+    {
+     "year": 2024,
+     "total": 94
+    },
+    {
+     "year": 2025,
+     "total": 120
+    }
+   ],
+   "note": "No recruitment in 2020 (COVID-19)."
+  },
+  {
+   "id": "rbi-assistant",
+   "name": "RBI Assistant",
+   "cat": "Banking",
+   "rows": [
+    {
+     "year": 2021,
+     "total": 926
+    },
+    {
+     "year": 2022,
+     "total": 950,
+     "note": "Plus 48 backlog"
+    },
+    {
+     "year": 2023,
+     "total": 450,
+     "note": "Plus 11 backlog"
+    },
+    {
+     "year": 2026,
+     "total": 650
+    }
+   ]
+  },
+  {
+   "id": "rrb-ntpc",
+   "name": "RRB NTPC",
+   "cat": "Railways",
+   "rows": [
+    {
+     "year": 2019,
+     "total": 35277,
+     "note": "10,628 undergraduate + 24,649 graduate posts"
+    },
+    {
+     "year": 2025,
+     "total": 8868,
+     "note": "5,810 graduate + 3,058 undergraduate"
+    }
+   ],
+   "note": "Other years not found yet."
+  },
+  {
+   "id": "rrb-group-d",
+   "name": "RRB Group D",
+   "cat": "Railways",
+   "rows": [
+    {
+     "year": 2019,
+     "total": 103769,
+     "note": "CEN 01/2019, the largest Group D drive"
+    }
+   ],
+   "note": "Other years not found yet."
+  },
+  {
+   "id": "rrb-alp",
+   "name": "RRB ALP & Technician",
+   "cat": "Railways",
+   "rows": [
+    {
+     "year": 2018,
+     "total": 64371,
+     "note": "36,576 ALP + 27,795 Technician"
+    }
+   ],
+   "note": "Other years not found yet."
+  },
+  {
+   "id": "rrb-asm",
+   "name": "RRB ASM / Station Master",
+   "cat": "Railways",
+   "rows": [
+    {
+     "year": 2019,
+     "total": 6865,
+     "note": "Part of the 2019 NTPC graduate posts"
+    }
+   ],
+   "note": "Other years not found yet."
+  },
+  {
+   "id": "up-police-si",
+   "name": "UP Police SI",
+   "cat": "State",
+   "rows": [
+    {
+     "year": 2025,
+     "total": 4543
+    }
+   ],
+   "note": "Earlier years not added yet."
+  },
+  {
+   "id": "up-police-constable",
+   "name": "UP Police Constable",
+   "cat": "State",
+   "rows": [
+    {
+     "year": 2025,
+     "total": 19220
+    }
+   ],
+   "note": "Earlier years not added yet."
+  }
+ ]
+}
