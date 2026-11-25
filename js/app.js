@@ -92,6 +92,7 @@
     if (p[0] === "finder") { setNav("finder"); return viewFinder(r.q); }
     if (p[0] === "selections") { setNav("selections"); return viewSelections(); }
     if (p[0] === "vacancies") { setNav("vacancies"); return viewVacancies(); }
+    if (p[0] === "history") { setNav("vacancies"); return viewHistory(); }
     if (p[0] === "training") { setNav("training"); return viewTraining(); }
     setNav(""); notFound();
   }
@@ -505,7 +506,7 @@
         .sort(function (x, y) { return (x.last || "9999") < (y.last || "9999") ? -1 : 1; });
       if ($("#vAsOf") && res.src) $("#vAsOf").textContent = "(" + res.src + ")";
       var cats = []; items.forEach(function (v) { if (v.cat && cats.indexOf(v.cat) < 0) cats.push(v.cat); });
-      $("#vacBody").innerHTML = '<div class="filters"><input type="search" id="vq" placeholder="Search exam or post" aria-label="Search vacancies"><select id="vc" aria-label="Category"><option value="">All categories</option>' + cats.map(function (c) { return "<option>" + esc(c) + "</option>"; }).join("") + '</select></div><p class="muted" id="vn" style="margin:8px 0"></p><div id="vl"></div>';
+      $("#vacBody").innerHTML = '<p style="margin:12px 0 0"><a href="#/history">Purani vacancies ka history dekho &rarr;</a></p><div class="filters"><input type="search" id="vq" placeholder="Search exam or post" aria-label="Search vacancies"><select id="vc" aria-label="Category"><option value="">All categories</option>' + cats.map(function (c) { return "<option>" + esc(c) + "</option>"; }).join("") + '</select></div><p class="muted" id="vn" style="margin:8px 0"></p><div id="vl"></div>';
       function draw() {
         var q = $("#vq").value.toLowerCase(), c = $("#vc").value;
         var f = items.filter(function (v) { return (!c || v.cat === c) && (!q || (v.exam + " " + v.post).toLowerCase().indexOf(q) >= 0); });
@@ -521,6 +522,34 @@
       }
       $("#vq").addEventListener("input", draw); $("#vc").addEventListener("change", draw); draw();
     }).catch(function () { $("#vacBody").innerHTML = '<div class="empty" style="margin-top:20px"><b>Vacancies load nahi hui</b>Official sites check karo: ssc.gov.in, ibps.in, rrbapply.gov.in.</div>'; });
+  }
+
+
+  function viewHistory() {
+    mount(
+      '<section class="phead tone-ssc"><div class="wrap"><div class="crumbs"><a href="#/">Home</a><span>/</span><a href="#/vacancies">Vacancies</a><span>/</span><span>History</span></div><h1>Vacancy history</h1><p>Past vacancy numbers for each exam, year by year. <span id="hAsOf"></span></p></div></section>' +
+      '<div class="wrap" id="hisBody"><div class="loading"><span class="spin"></span>Loading history…</div></div>');
+    fetch("data/history.json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }).then(function (j) {
+      var ex = j.exams || [];
+      if ($("#hAsOf")) $("#hAsOf").textContent = j.updated ? "(updated " + j.updated + ")" : "";
+      var cats = []; ex.forEach(function (e) { if (cats.indexOf(e.cat) < 0) cats.push(e.cat); });
+      $("#hisBody").innerHTML = '<div class="filters"><select id="hc" aria-label="Category"><option value="">All categories</option>' + cats.map(function (c) { return "<option>" + esc(c) + "</option>"; }).join("") + '</select></div>' +
+        (j.note ? '<p class="muted" style="margin:8px 0;font-size:.9rem">' + esc(j.note) + "</p>" : "") + '<div id="hl"></div>';
+      function fmt(n) { return Number(n).toLocaleString("en-IN"); }
+      function draw() {
+        var c = $("#hc").value;
+        $("#hl").innerHTML = ex.filter(function (e) { return !c || e.cat === c; }).map(function (e) {
+          var rows = e.rows.slice().sort(function (a, b) { return b.year - a.year; });
+          var max = Math.max.apply(null, e.rows.map(function (r) { return r.total; }));
+          return '<div class="card" style="margin:12px 0;padding:14px"><b>' + (examById[e.id] ? '<a href="#/e/' + esc(e.id) + '">' + esc(e.name) + "</a>" : esc(e.name)) + '</b> <span class="badge ok sm">' + esc(e.cat) + "</span>" +
+            '<div style="margin-top:8px">' + rows.map(function (r) {
+              var w = Math.max(2, Math.round(r.total / max * 100));
+              return '<div style="padding:4px 0"><div style="display:flex;gap:8px;align-items:center"><span style="flex:0 0 38px">' + esc(r.year) + '</span><b style="flex:0 0 62px">' + fmt(r.total) + '</b><div style="flex:1 1 0;min-width:0"><div style="height:10px;border-radius:5px;background:#5a4bda;width:' + w + '%"></div></div></div>' + (r.note ? '<div class="muted" style="font-size:.8rem;padding-left:46px">' + esc(r.note) + "</div>" : "") + "</div>";
+            }).join("") + "</div>" + (e.note ? '<div class="muted" style="font-size:.85rem;margin-top:6px">' + esc(e.note) + "</div>" : "") + "</div>";
+        }).join("");
+      }
+      $("#hc").addEventListener("change", draw); draw();
+    }).catch(function () { $("#hisBody").innerHTML = '<div class="empty" style="margin-top:20px"><b>History load nahi hui</b>Thodi der baad dobara try karo.</div>'; });
   }
 
   function viewSelections() {
